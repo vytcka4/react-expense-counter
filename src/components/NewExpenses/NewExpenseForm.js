@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./NewExpenseForm.css";
+import "./NewExpense";
 
 const NewExpenseForm = (props) => {
   //
@@ -24,7 +25,7 @@ const NewExpenseForm = (props) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTittle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -67,6 +68,9 @@ const NewExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add expense</button>
       </div>
     </form>
